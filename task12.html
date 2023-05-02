@@ -1,0 +1,52 @@
+<template>
+  <v-row>
+    <v-col
+        class="d-flex"
+        cols="8"
+        sm="3"
+      >
+        <v-select
+          :items="items"
+          label="Select a service user"
+          outlined
+        ></v-select>
+      </v-col>
+      <v-col cols="7" sm="3">
+                <v-menu>
+                    <template v-slot:activator="{ on }">
+                        <v-text-field v-model="date" variant="outlined" label="Select a date" input type="date" prepend-icon="mdi-calendar" v-on="on"></v-text-field>
+                    </template>
+                    <v-date-picker v-model="date" multiple></v-date-picker>
+                </v-menu>
+            </v-col>
+
+
+      <v-col cols="7">
+        <v-text-field label="Job Post Title"></v-text-field>
+      </v-col>
+      <v-col cols="7">
+        <v-textarea label="Job Post Description"></v-textarea>
+      </v-col>
+      <v-col cols="7">
+        <v-divider></v-divider>
+      </v-col>
+      <v-col cols="7">
+        <v-toolbar color="blue darken-3" dark>
+          <v-toolbar-title>Shifts</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn color="primary">Add Shift</v-btn>
+        </v-toolbar>
+      </v-col>
+    </v-row>
+</template>
+<script>
+export default {
+  data: () => ({
+    items: ['Full-time', 'Part-time', 'Contract'],
+    date: null,
+    menu: false,
+  }),
+};
+
+      
+</script>
